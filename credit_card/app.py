@@ -4,8 +4,8 @@ import joblib
 import lightgbm as lgb 
 from geopy.distance import geodesic
 
-model = joblib.load("credit_card/fraud_detection_model.jb")
-encoder = joblib.load("label_encoder.jb")
+model = joblib.load("credit_card/Fraud_detection_model.jb")
+encoder = joblib.load("credit_card/label_encoder.jb")
 
 def haversine(lat1, lon1, lat2, lon2):
     return geodesic((lat1, lon1),(lat2,lon2)).km
@@ -45,4 +45,5 @@ if st.button("Check For Fraud"):
         result = "Fraudulant Transaction" if prediction == 1 else " Legitimate Transaction"
         st.subheader(f"Prediction: {result}")
     else:
+
         st.error("Please Fill all required fields")
